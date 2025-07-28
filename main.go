@@ -17,5 +17,5 @@ func inputUserValue(usingValute, convertValue float64){
 	fmt.Scan(&convertValue)
 }
 func convert (usingValute, convertValue, howMatch float64) float64{
-	
+	return 0
 }
