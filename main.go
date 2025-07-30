@@ -1,21 +1,34 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
-func main()  {
-	const eurToUsd = 1.2
-	const usdToRub = 90.0
-	const eurToRub = eurToUsd * usdToRub
+func main(){
+	var transactions[] float64 
 
+	for{
+		fmt.Print("Введите транзакцию: ")
+		transactionN, err := newTransaction()
+		if err!=nil{
+			fmt.Println(err)
+		}
+		if transactionN == 0{
+			break
+		}
+		transactions = append(transactions, transactionN)
+	}
+	fmt.Print(transactions)
 }
-func inputUserValue(usingValute, convertValue float64){
-	fmt.Println("Введите валюту которая у вас есть")
-	fmt.Scan(&usingValute)
-	fmt.Println("Введите валюту на которую необходимо обменять")
-	fmt.Scan(&convertValue)
-}
-func convert (usingValute, convertValue, howMatch float64) float64{
-	return 0
+
+func newTransaction()(float64, error){
+	var transaction float64 
+	var err error
+	_, err = fmt.Scan(&transaction)
+	if err!=nil{
+		errors.New("Не является транзакцией")
+		return 0, err
+	}
+	return transaction, nil
 }
