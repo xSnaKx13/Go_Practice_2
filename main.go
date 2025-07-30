@@ -7,10 +7,9 @@ import (
 
 func main(){
 	var transactions[] float64 
-    var err error
 	for{
 		fmt.Print("Введите транзакцию: ")
-		transactionN, err = newTransaction()
+		transactionN, err := newTransaction()
 		if err!=nil{
 			fmt.Println("Ошибка: ", err)
 			continue
@@ -19,11 +18,11 @@ func main(){
 			break
 		}
 		transactions = append(transactions, transactionN)
-
-	fmt.Print(transactions)
+	}
+	fmt.Println(transactions)
 }
 
-func newTransaction() (float64 , error){
+func newTransaction() (float64, error){
 	var transaction float64 
 	var err error
 	_, err = fmt.Scan(&transaction)
